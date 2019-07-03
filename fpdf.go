@@ -3927,3 +3927,10 @@ func (f *Fpdf) SetPage(pageNum int) {
 		f.page = pageNum
 	}
 }
+
+// PageCount returns the number of pages currently in the document. Since page
+// numbers in gofpdf are one-based, the page count is the same as the page
+// number of the current last page.
+func (f *Fpdf) PageCount() int {
+	return len(f.pages) - 1
+}
